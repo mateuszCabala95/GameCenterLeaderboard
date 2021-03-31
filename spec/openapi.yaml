@@ -42,6 +42,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Score'
+        400:
+          description: Invalid input
+          content:
+            {}
+        503:
+          description: unavailable service
+          content: { }
 components:
   requestBodies:
     AddResult:
