@@ -1,6 +1,9 @@
 <h1 class='title'>Game Center Leaderboards</h1>
 
-<div class='results' *ngFor='let result of results$'>
+<div class='flex-wrapper'>
+
+<div class='results'>
+<ng-container *ngFor='let result of results$'>
   <div class='results__row'><p> Player:
     <span class='player__name'>{{result.player.name}}</span>
     has a
@@ -8,6 +11,8 @@
     points
   </p>
   </div>
+</ng-container>
 
+</div>
 
 </div>
