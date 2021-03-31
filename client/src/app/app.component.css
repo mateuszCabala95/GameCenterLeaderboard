@@ -60,3 +60,7 @@
     font-size: 1.4em;
   }
 }
+
+.invalid{
+  border-color: red;
+}

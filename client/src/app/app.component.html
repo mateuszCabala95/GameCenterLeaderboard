@@ -15,4 +15,35 @@
 
 </div>
 
+  <form [formGroup]='addResultForm'  (ngSubmit)='onSubmit($event)'>
+    <label>Player's name:
+      <input
+        type='text'
+        required='required'
+        placeholder='Tom'
+        minlength='3'
+        formControlName='player'
+        [class.invalid]='!addResultForm.valid&& addResultForm.touched'
+>
+    </label>
+
+    <label>Player's scores:
+      <input
+        type='number'
+        required='required'
+        placeholder='10'
+        formControlName='score'
+        [class.invalid]='!addResultForm.valid && addResultForm.touched'
+      >
+    </label>
+
+    <button
+      type='submit'
+      [disabled]='!addResultForm.valid'
+    >Send!</button>
+
+  </form>
+
+
 </div>
+
