@@ -18,8 +18,8 @@ class LeaderboardController implements IController {
   };
 
 
-  private getTop10 = (req: Request, res: Response) => {
-    const result = this._service.getTop10();
+  private getTop10 = async (req: Request, res: Response) => {
+    const result = await this._service.getTop10();
 
     if (result) {
       res.status(200).json(result);
