@@ -7,13 +7,13 @@ servers:
   - url: localhost:8080/api
   - url: localhost
 tags:
-  - name: leaderboard
+  - name: leaderboards
     description: Board with best 10 players and their scores
 paths:
-  /leaderboard:
+  /leaderboards:
     get:
       tags:
-        - leaderboard
+        - leaderboards
       summary: Get top 10 results
       operationId: getTop10
       responses:
@@ -30,7 +30,7 @@ paths:
           content: {}
     post:
       tags:
-        - leaderboard
+        - leaderboards
       summary: Add new result
       operationId: addResult
       requestBody:
@@ -99,12 +99,10 @@ components:
     Error:
       type: object
       properties:
-        targer:
+        target:
           type: object
         property:
           type: string
-        children:
-          type: array
         constrains:
           type: object
         data:

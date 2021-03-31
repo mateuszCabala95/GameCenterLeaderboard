@@ -1,0 +1,15 @@
+.gitignore
+README.md
+api.module.ts
+api/api.ts
+api/leaderboards.service.ts
+configuration.ts
+encoder.ts
+git_push.sh
+index.ts
+model/addResult.ts
+model/error.ts
+model/models.ts
+model/player.ts
+model/score.ts
+variables.ts
