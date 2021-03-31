@@ -9,8 +9,10 @@ import { Score } from '../out_spec';
 export class AppComponent implements OnInit{
 
   results$: Score[] = []
+  _service: LeaderboardsService;
 
-  constructor(private readonly _service: LeaderboardsService ) {
+  constructor(private readonly service: LeaderboardsService ) {
+    this._service = service
   }
 
 
