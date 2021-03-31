@@ -3,6 +3,7 @@ import express, { Application } from 'express';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 import 'dotenv/config';
+import IController from './interfaces/Controller.interface';
 
 
 class App {
@@ -10,7 +11,7 @@ class App {
   private readonly _app: Application = express();
   private readonly _port = process.env.PORT;
 
-  constructor(controllers: []) {
+  constructor(controllers: IController[]) {
     this.connectWithDB();
     this.initMiddlewares();
     this.initControllers(controllers);
@@ -38,13 +39,13 @@ class App {
     this._app.use(cors());
   };
 
-  private initControllers = (controllers: []) => {
-
+  private initControllers = (controllers: IController[]) => {
+    controllers.forEach(controller => this._app.use('/api', controller.router));
   };
 
   public listen = (): void => {
     this._app.listen(this._port, () => {
-      console.log('Server works')
+      console.log('Server works');
     });
   };
 
