@@ -15,29 +15,33 @@
 
 </div>
 
-  <form [formGroup]='addResultForm'  (ngSubmit)='onSubmit($event)'>
-    <label>Player's name:
-      <input
-        type='text'
-        required='required'
-        placeholder='Tom'
-        minlength='3'
-        formControlName='player'
-        [class.invalid]='!addResultForm.valid&& addResultForm.touched'
->
-    </label>
+  <form [formGroup]='addResultForm'  (ngSubmit)='onSubmit($event)' class='form'>
+    <p class='form__title'>Add new result</p>
+    <label class='row__label' for='player'>Player's name:</label>
+    <input
+      class='row__input'
+      id='player'
+      type='text'
+      required='required'
+      placeholder='Tom'
+      minlength='3'
+      formControlName='player'
+      [class.invalid]='!addResultForm.valid&& addResultForm.touched'
+    >
 
-    <label>Player's scores:
-      <input
-        type='number'
-        required='required'
-        placeholder='10'
-        formControlName='score'
-        [class.invalid]='!addResultForm.valid && addResultForm.touched'
-      >
-    </label>
+    <label class='row__label' for='score'>Player's scores:</label>
+    <input
+      class='row__input'
+      id='score'
+      type='number'
+      required='required'
+      placeholder='10'
+      formControlName='score'
+      [class.invalid]='addResultForm.touched && !addResultForm.valid '
+    >
 
     <button
+      class='btn'
       type='submit'
       [disabled]='!addResultForm.valid'
     >Send!</button>

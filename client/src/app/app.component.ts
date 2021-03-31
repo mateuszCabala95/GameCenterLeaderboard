@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddResult, LeaderboardsService } from '../out_spec';
+import { LeaderboardsService } from '../out_spec';
 import { Score } from '../out_spec';
 import { FormControl, FormGroup } from '@angular/forms';
 
