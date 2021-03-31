@@ -1,4 +1,4 @@
-import { AddResult, Score } from '../out';
+import { AddResult, Score } from '../out_spec';
 import ScoreModel from '../models/Score.model';
 import PlayerModel from '../models/Player.model';
 

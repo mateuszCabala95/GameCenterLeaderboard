@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "openapi --input ../spec/openapi.yaml -o ./src/out --useOptions",
+    "generate": "openapi --input ../spec/openapi.yaml -o ./src/out_spec --useOptions",
     "prestart": "npm install",
     "start": "nodemon src/server.ts"
   },
@@ -29,6 +29,8 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb-memory-server": "^6.9.6",
