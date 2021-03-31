@@ -1,0 +1,88 @@
+openapi: 3.0.1
+info:
+  title: Game Center Leaderboard
+  description: Implementation recruitment task from VirtusLab - internship 2021 Frontend
+  version: 1.0.0
+servers:
+  - url: localhost:8080/api
+  - url: localhost
+tags:
+  - name: leaderboard
+    description: Board with best 10 players and their scores
+paths:
+  /leaderboard:
+    get:
+      tags:
+        - leaderboard
+      summary: Get top 10 results
+      operationId: getTop10
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Score'
+        503:
+          description: unavailable service
+          content: {}
+    post:
+      tags:
+        - leaderboard
+      summary: Add new result
+      operationId: addResult
+      requestBody:
+        $ref: "#/components/requestBodies/AddResult"
+      responses:
+        200:
+          description: Added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Score'
+components:
+  requestBodies:
+    AddResult:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AddResult"
+  schemas:
+    AddResult:
+      required:
+        - score
+        - player
+      type: object
+      properties:
+        score:
+          type: integer
+          format: int64
+        player:
+          type: string
+    Player:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: hash
+        name:
+          type: string
+    Score:
+      required:
+        - score
+        - player
+      type: object
+      properties:
+        id:
+          type: string
+          format: hash
+        score:
+          type: integer
+          format: int64
+        player:
+          $ref: '#/components/schemas/Player'
