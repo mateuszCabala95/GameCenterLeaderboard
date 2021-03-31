@@ -1,6 +1,8 @@
 import IController from '../interfaces/Controller.interface';
 import { Request, Response, Router } from 'express';
 import LeaderboardService from '../services/Leaderboard.service';
+import validationMiddleware from '../utils/middlewares/validation.middleware';
+import AddResultDTO from '../DTOs/AddResult.dto';
 
 class LeaderboardController implements IController {
 
@@ -14,7 +16,7 @@ class LeaderboardController implements IController {
 
   private initRouts = (): void => {
     this.router.get(this.path, this.getTop10);
-    this.router.post(this.path, this.addResult)
+    this.router.post(this.path,validationMiddleware(AddResultDTO), this.addResult)
   };
 
 

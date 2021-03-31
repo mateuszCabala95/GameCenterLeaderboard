@@ -45,7 +45,9 @@ paths:
         400:
           description: Invalid input
           content:
-            {}
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
         503:
           description: unavailable service
           content: { }
@@ -69,6 +71,7 @@ components:
           format: int64
         player:
           type: string
+          minLength: 3
     Player:
       required:
         - name
@@ -93,3 +96,16 @@ components:
           format: int64
         player:
           $ref: '#/components/schemas/Player'
+    Error:
+      type: object
+      properties:
+        targer:
+          type: object
+        property:
+          type: string
+        children:
+          type: array
+        constrains:
+          type: object
+        data:
+          $ref: "#/components/schemas/AddResult"

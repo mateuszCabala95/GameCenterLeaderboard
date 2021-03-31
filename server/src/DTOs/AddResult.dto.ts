@@ -12,3 +12,5 @@ class AddResultDTO implements AddResult{
   score!: number;
 
 }
+
+export default AddResultDTO
